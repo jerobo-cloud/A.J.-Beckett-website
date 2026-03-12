@@ -4,270 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A.J. Beckett | Author</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* BRAND COLORS */
         :root {
-            --bg-color: #ffffff;
-            --header-dark: #1a1b1e;
-            --text-main: #333333;
-            --accent: #5a7d7c; /* Slate teal from the original design */
-            --border: #eeeeee;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --slate: #5a7d7c;
+            --accent: #7a4a4a; /* Romance heat */
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
         body {
             margin: 0;
-            padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
         }
 
-        /* Top Logo & Nav Area */
+        /* HEADER & LOGO */
         .site-header {
+            padding: 40px 20px;
             text-align: center;
-            padding: 3rem 0 1rem 0;
-            background: #fff;
+            border-bottom: 1px solid #eee;
         }
 
-        .site-title {
+        .site-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 400;
             margin: 0;
+            letter-spacing: -1px;
             color: #000;
         }
 
         nav {
-            margin-top: 1rem;
+            margin-top: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.75rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding-bottom: 2rem;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
         }
 
         nav a {
             text-decoration: none;
-            color: #666;
-            font-weight: 600;
+            color: #888;
+            margin: 0 15px;
+            transition: 0.3s;
         }
 
-        /* Hero Image Section - The "Path" Imagery */
+        nav a:hover { color: var(--dark); }
+
+        /* THE GRAPHIC HERO - The Cinematic Center */
         .hero {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
-                        url('https://images.unsplash.com/photo-1476136230993-88a74e537229?auto=format&fit=crop&q=80&w=2000');
+            height: 450px;
+            background: url('https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            position: relative;
         }
 
-        .hero-text {
-            background: rgba(255,255,255,0.9);
-            padding: 2rem 4rem;
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.1); /* Subtle dark overlay for drama */
+        }
+
+        .hero-box {
+            position: relative;
+            z-index: 2;
+            background: var(--glass);
+            padding: 40px 60px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 700px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
-        .hero-text h2 {
+        .hero-box h2 {
             font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             margin: 0;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
+            line-height: 1.4;
+            font-weight: 400;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* Content Sections */
+        /* ABOUT SECTION */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 5rem 2rem;
+            padding: 80px 20px;
         }
 
+        .about-text {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #444;
+            font-weight: 300;
+        }
+
+        /* BOOK GALLERY - High Style Graphics */
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 50px;
         }
 
-        .about-box {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 300;
-            line-height: 2;
-        }
-
-        /* Books Section */
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
         }
 
-        .book-card {
-            text-align: center;
-        }
+        .book-card { text-align: center; }
 
-        .book-image {
+        .book-graphic {
             width: 100%;
             aspect-ratio: 2/3;
-            background-color: #f9f9f9;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: #222;
+            margin-bottom: 25px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: 0.4s ease;
             position: relative;
-            overflow: hidden;
-            border: 1px solid #eee;
+            border: 1px solid #333;
         }
 
-        /* To simulate the covers in your mockup */
-        .cover-1 { background: linear-gradient(45deg, #2c3e50, #000000); }
-        .cover-2 { background: linear-gradient(45deg, #1a1a1a, #4a4a4a); }
-        .cover-3 { background: linear-gradient(45deg, #d4d4d4, #ffffff); color: #000 !important; }
+        .book-graphic:hover { transform: translateY(-10px); }
 
-        .book-image h4 {
+        /* Cover Specific Styles */
+        .becoming-cover { background: linear-gradient(135deg, #1a1a1a 0%, #3a4a4a 100%); }
+        .building-cover { background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%); }
+        .choosing-cover { background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%); color: #000 !important; }
+
+        .book-graphic h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #fff;
+            font-size: 2.2rem;
             margin: 0;
-        }
-
-        .book-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin: 1rem 0 0.5rem 0;
+            color: inherit;
         }
 
         .book-tagline {
             font-style: italic;
-            color: #777;
-            margin-bottom: 1.5rem;
+            color: #888;
             font-size: 0.9rem;
+            margin: 10px 0 20px 0;
         }
 
         .buy-btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--accent);
-            color: #fff;
+            padding: 12px 30px;
+            background: var(--dark);
+            color: white;
             text-decoration: none;
             font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 2px;
-            border-radius: 2px;
             transition: 0.3s;
         }
 
-        .buy-btn:hover { background-color: #3d5554; }
+        .buy-btn:hover { background: var(--accent); }
 
-        /* Dark Footer / Newsletter */
+        /* DARK CTA FOOTER */
         .footer-cta {
-            background-color: var(--header-dark);
-            color: #fff;
-            padding: 5rem 2rem;
+            background: var(--dark);
+            color: white;
+            padding: 100px 20px;
             text-align: center;
         }
 
         .newsletter-form {
-            margin-top: 2rem;
+            margin-top: 30px;
         }
 
         .newsletter-form input {
-            padding: 1rem;
+            padding: 15px;
             width: 300px;
             border: none;
-            outline: none;
             font-family: inherit;
         }
 
-        .social-icons {
-            margin-top: 2rem;
-            font-size: 1.5rem;
-            opacity: 0.8;
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        @media (max-width: 768px) {
-            .site-title { font-size: 2.5rem; }
-            .hero-text { padding: 1.5rem; width: 90%; }
+        .newsletter-btn:hover { background: var(--accent); }
+
+        .copy {
+            margin-top: 50px;
+            font-size: 0.65rem;
+            opacity: 0.4;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <h1 class="site-title">A.J. Beckett</h1>
+    <div class="site-header">
+        <h1>A.J. Beckett</h1>
         <nav>
-            <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#books">Books</a>
             <a href="mailto:hello@ajbeckettwrites.com">Contact</a>
         </nav>
-    </header>
+    </div>
 
     <div class="hero">
-        <div class="hero-text">
-            <h2>Narratives on Connection.<br>Interaction and the heat between us.</h2>
+        <div class="hero-box">
+            <h2>Human Interaction.<br>Relationship Dynamics.<br>The Heat Between Us.</h2>
         </div>
     </div>
 
     <div class="container" id="about">
-        <h2 class="section-title">About the Author</h2>
-        <div class="about-box">
-            <p>A.J. Beckett writes romance centered on the high-stakes friction of human interaction. It is a study of the structures we build together—and the desire that threatens to burn them down. Based in Northern Alabama, Beckett’s work explores the specific mechanics of intimacy: the heavy silence, the involuntary reach, and the electric heat generated when two people finally stop fighting their own dynamics.</p>
+        <div class="about-text">
+            <p>A.J. Beckett writes romance centered on the high-stakes friction of human interaction. It is a study of the structures we build together—and the desire that threatens to burn them down.</p>
+            <p>Based in Northern Alabama, Beckett’s work explores the specific mechanics of intimacy: the heavy silence, the involuntary reach, and the electric heat generated when two people finally stop fighting their own dynamics.</p>
         </div>
     </div>
 
     <div class="container" id="books">
-        <h2 class="section-title">Books</h2>
+        <h2 class="section-title">The Series</h2>
         <div class="books-grid">
             <div class="book-card">
-                <div class="book-image cover-1">
+                <div class="book-graphic becoming-cover" style="color:white;">
                     <h4>Becoming</h4>
                 </div>
                 <h3>Becoming</h3>
-                <p class="book-tagline">One choice. Total proximity. The start of everything.</p>
+                <p class="book-tagline">One choice. Total proximity.</p>
                 <a href="#" class="buy-btn">VIEW ON AMAZON</a>
             </div>
             <div class="book-card">
-                <div class="book-image cover-2">
+                <div class="book-graphic building-cover" style="color:white;">
                     <h4>Building</h4>
                 </div>
                 <h3>Building</h3>
-                <p class="book-tagline">How do we make room for each other in the structures we've built alone?</p>
-                <a href="#" class="buy-btn" style="background: #666; pointer-events: none;">COMING SOON</a>
+                <p class="book-tagline">Building a life in the ruins.</p>
+                <a href="#" class="buy-btn" style="opacity:0.5; pointer-events:none;">COMING SOON</a>
             </div>
             <div class="book-card">
-                <div class="book-image cover-3">
-                    <h4 style="color: #000;">Choosing</h4>
+                <div class="book-graphic choosing-cover">
+                    <h4>Choosing</h4>
                 </div>
                 <h3>Choosing</h3>
-                <p class="book-tagline">The legacy of a love that was paid for in steps. The final chapter.</p>
-                <a href="#" class="buy-btn" style="background: #666; pointer-events: none;">COMING SOON</a>
+                <p class="book-tagline">The final decision.</p>
+                <a href="#" class="buy-btn" style="opacity:0.5; pointer-events:none;">COMING SOON</a>
             </div>
         </div>
     </div>
 
     <div class="footer-cta">
-        <div class="social-icons">📸 &nbsp; 𝕏</div>
+        <p style="letter-spacing: 3px; font-size: 0.8rem;">STAY CONNECTED</p>
         <div class="newsletter-form">
-            <input type="email" placeholder="JOIN NEWSLETTER" required>
-            <button type="submit" class="buy-btn" style="margin: 0; padding: 1rem 2rem; border:none; cursor:pointer;">SUBMIT</button>
+            <input type="email" placeholder="ENTER EMAIL ADDRESS">
+            <button class="newsletter-btn">JOIN</button>
         </div>
-        <p style="margin-top: 3rem; font-size: 0.7rem; opacity: 0.5;">&copy; 2026 A.J. BECKETT. ALL RIGHTS RESERVED.</p>
+        <p class="copy">&copy; 2026 A.J. BECKETT. ALL RIGHTS RESERVED.</p>
     </div>
 
 </body>
