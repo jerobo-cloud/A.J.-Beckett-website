@@ -1,416 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.J. Beckett | Author</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #121212;
+            --slate: #2c3e50;
+            --text: #333333;
+            --light: #ffffff;
+            --accent: #5a7d7c;
+        }
 
-<title>A.J. Beckett | Author</title>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        /* LOGO AREA */
+        .site-header {
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
 
-<style>
+        .site-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: -2px;
+            color: #000;
+        }
 
-:root{
---bg:#fcfcfc;
---text:#1a1a1a;
---accent:#7a4a4a;
---accent-hover:#643c3c;
---light:#f4f4f4;
---mid:#6b6b6b;
---dark:#2d2d2d;
---border:#e5e5e5;
---width:1100px;
---shadow:0 20px 40px rgba(0,0,0,0.12);
-}
+        nav {
+            margin-top: 25px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.7rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 30px;
+        }
 
-*{
-box-sizing:border-box;
-}
+        nav a {
+            text-decoration: none;
+            color: #999;
+            margin: 0 20px;
+            transition: 0.3s;
+        }
 
-html{
-scroll-behavior:smooth;
-}
+        nav a:hover { color: #000; }
 
-body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.75;
-}
+        /* THE ATMOSPHERIC HERO */
+        .hero-banner {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        url('https://images.unsplash.com/photo-1507502707541-f369a3b18502?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid #eee;
+        }
 
-h1,h2,h3,h4{
-font-family:'Playfair Display',serif;
-}
+        .hero-overlay {
+            background: rgba(255,255,255,0.95);
+            padding: 40px 80px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            max-width: 800px;
+        }
 
-nav{
-padding:1.4rem 1rem;
-display:flex;
-justify-content:center;
-gap:2rem;
-text-transform:uppercase;
-font-size:.75rem;
-letter-spacing:2px;
-border-bottom:1px solid var(--border);
-background:white;
-position:sticky;
-top:0;
-z-index:1000;
-}
+        .hero-overlay h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-nav a{
-text-decoration:none;
-color:var(--text);
-}
+        /* BIO SECTION */
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
 
-nav a:hover{
-color:var(--accent);
-}
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-header{
-text-align:center;
-padding:6rem 1rem;
-background:
-linear-gradient(rgba(255,255,255,.65),rgba(255,255,255,.65)),
-url('https://images.unsplash.com/photo-1516589174184-c6858b16ecb0?auto=format&fit=crop&q=80&w=2000');
-background-size:cover;
-background-position:center;
-border-bottom:1px solid var(--border);
-}
+        .about-text {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: #555;
+        }
 
-h1{
-font-size:clamp(3rem,7vw,4.5rem);
-margin:0;
-}
+        /* BOOKS GRID */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
 
-.tagline{
-margin-top:1rem;
-font-size:1rem;
-letter-spacing:1.5px;
-text-transform:uppercase;
-color:var(--accent);
-font-weight:600;
-}
+        .book-item { text-align: center; }
 
-.container{
-max-width:var(--width);
-margin:auto;
-padding:5rem 1.5rem;
-}
+        .book-art {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #1a1a1a;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease;
+            position: relative;
+            color: #fff;
+        }
 
-h2{
-font-size:2.3rem;
-text-align:center;
-margin-bottom:2rem;
-}
+        .book-art:hover { transform: scale(1.02); }
 
-.about{
-text-align:center;
-max-width:760px;
-margin:auto;
-font-size:1.05rem;
-}
+        .book-art h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 0;
+        }
 
-.books{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:2.5rem;
-}
+        .book-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
 
-.book{
-text-align:center;
-}
+        .book-desc {
+            font-style: italic;
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
 
-.cover{
-width:100%;
-aspect-ratio:2/3;
-border-radius:4px;
-box-shadow:var(--shadow);
-overflow:hidden;
-background:var(--dark);
-}
+        .cta-button {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--dark);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
 
-.cover img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
+        .cta-button:hover { background: var(--accent); }
 
-.placeholder{
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:white;
-background:linear-gradient(135deg,#2d2d2d,#4a3636);
-}
+        /* DARK FOOTER */
+        .footer {
+            background-color: var(--dark);
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-.placeholder span:first-child{
-font-family:'Playfair Display',serif;
-font-size:2rem;
-}
+        .social { margin-bottom: 30px; font-size: 1.5rem; }
+        
+        .newsletter-input {
+            padding: 15px;
+            width: 320px;
+            border: none;
+            outline: none;
+            font-family: inherit;
+        }
 
-.placeholder span:last-child{
-font-size:.8rem;
-letter-spacing:2px;
-text-transform:uppercase;
-opacity:.8;
-}
+        .submit-btn {
+            padding: 15px 30px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
 
-.book h3{
-margin:1.2rem 0 .5rem;
-font-size:1.7rem;
-}
+        .copyright {
+            margin-top: 60px;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            letter-spacing: 2px;
+        }
 
-.book p{
-color:var(--mid);
-font-size:.95rem;
-}
-
-.btn{
-display:inline-block;
-margin-top:1.3rem;
-padding:.9rem 1.8rem;
-background:var(--accent);
-color:white;
-text-decoration:none;
-font-size:.75rem;
-font-weight:600;
-letter-spacing:2px;
-text-transform:uppercase;
-}
-
-.btn:hover{
-background:var(--accent-hover);
-}
-
-.newsletter{
-background:var(--light);
-padding:5rem 1.5rem;
-text-align:center;
-border-top:1px solid var(--border);
-border-bottom:1px solid var(--border);
-}
-
-.newsletter h3{
-font-size:2rem;
-margin-bottom:1rem;
-}
-
-.newsletter p{
-max-width:600px;
-margin:auto;
-margin-bottom:2rem;
-color:var(--mid);
-}
-
-.newsletter input{
-padding:1rem;
-width:320px;
-border:1px solid #ccc;
-}
-
-.contact{
-text-align:center;
-max-width:700px;
-margin:auto;
-}
-
-.contact a{
-color:var(--accent);
-font-weight:600;
-text-decoration:none;
-}
-
-footer{
-background:var(--dark);
-color:#bbb;
-text-align:center;
-padding:3rem 1.5rem;
-font-size:.8rem;
-}
-
-</style>
+        @media (max-width: 768px) {
+            .site-header h1 { font-size: 3rem; }
+            .hero-overlay { padding: 20px 30px; width: 90%; }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-<a href="#about">About</a>
-<a href="#books">Books</a>
-<a href="#newsletter">Newsletter</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<header>
-
-<h1>A.J. Beckett</h1>
-
-<p class="tagline">
-Stories about connection, desire, and the moments that change everything.
-</p>
-
-</header>
-
-
-<div class="container">
-
-<section id="about">
-
-<h2>About the Author</h2>
-
-<div class="about">
-
-<p>
-A.J. Beckett writes romance centered on the tension and connection between two people who cannot ignore what draws them together.
-</p>
-
-<p>
-Her stories explore intimacy, restraint, vulnerability, and the emotional gravity that builds when desire finally breaks through hesitation.
-</p>
-
-<p>
-A.J. Beckett lives and writes in Northern Alabama.
-</p>
-
-</div>
-
-</section>
-
-</div>
-
-
-
-<div class="container">
-
-<section id="books">
-
-<h2>The Tanner & Shelby Series</h2>
-
-<div class="books">
-
-<div class="book">
-
-<div class="cover">
-
-<img src="becoming-cover.PNG" alt="Becoming book cover">
-
-</div>
-
-<h3>Becoming</h3>
-
-<p>
-Book One of the Tanner & Shelby Series.  
-One choice. Total proximity. The start of everything.
-</p>
-
-<a href="#" class="btn">View on Amazon</a>
-
-</div>
-
-
-
-<div class="book">
-
-<div class="cover placeholder">
-
-<span>Building</span>
-<span>Coming Soon</span>
-
-</div>
-
-<h3>Building</h3>
-
-<p>
-The second book in the Tanner & Shelby series.
-</p>
-
-<a class="btn">Coming Soon</a>
-
-</div>
-
-
-
-<div class="book">
-
-<div class="cover placeholder">
-
-<span>Choosing</span>
-<span>Coming Soon</span>
-
-</div>
-
-<h3>Choosing</h3>
-
-<p>
-The third book in the Tanner & Shelby series.
-</p>
-
-<a class="btn">Coming Soon</a>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-
-
-<section class="newsletter" id="newsletter">
-
-<h3>Join the Inner Circle</h3>
-
-<p>
-Subscribe for release announcements, early chapters, and exclusive Tanner & Shelby content.
-</p>
-
-<form onsubmit="return false;">
-
-<input type="email" placeholder="Email Address">
-
-<button class="btn">Subscribe</button>
-
-</form>
-
-</section>
-
-
-
-<div class="container">
-
-<section id="contact">
-
-<h2>Contact</h2>
-
-<div class="contact">
-
-<p>
-For reader mail or business inquiries:
-</p>
-
-<p>
-<a href="mailto:hello@ajbeckettwrites.com">
-hello@ajbeckettwrites.com
-</a>
-</p>
-
-</div>
-
-</section>
-
-</div>
-
-
-
-<footer>
-
-<p>
-© 2026 A.J. Beckett. All Rights Reserved.
-</p>
-
-</footer>
+    <header class="site-header">
+        <h1>A.J. Beckett</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#books">Books</a>
+            <a href="mailto:hello@ajbeckettwrites.com">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero-banner">
+        <div class="hero-overlay">
+            <h2>Human Interaction. Relationships.<br>The Heat Between Us.</h2>
+        </div>
+    </div>
+
+    <div class="section-container" id="about">
+        <h2 class="section-title">About the Author</h2>
+        <div class="about-text">
+            <p>A.J. Beckett writes romance centered on the high-stakes friction of human interaction. It is a study of the structures we build together—and the desire that threatens to burn them down.</p>
+            <p>Based in Northern Alabama, Beckett’s work explores the specific mechanics of intimacy: the heavy silence, the involuntary reach, and the electric heat generated when two people finally stop fighting their own dynamics.</p>
+        </div>
+    </div>
+
+    <div class="section-container" id="books" style="background-color: #fafafa; max-width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 class="section-title">The Series</h2>
+            <div class="books-grid">
+                <div class="book-item">
+                    <div class="book-art" style="background: linear-gradient(135deg, #1e272e, #000);">
+                        <h4>Becoming</h4>
+                    </div>
+                    <h3>Becoming</h3>
+                    <p class="book-desc">One choice. Total proximity. The start of everything.</p>
+                    <a href="#" class="cta-button">VIEW ON AMAZON</a>
+                </div>
+                <div class="book-item">
+                    <div class="book-art" style="background: linear-gradient(135deg, #2f3640, #1a1a1a);">
+                        <h4>Building</h4>
+                    </div>
+                    <h3>Building</h3>
+                    <p class="book-desc">How do we make room for each other?</p>
+                    <a href="#" class="cta-button" style="opacity: 0.5; pointer-events: none;">COMING SOON</a>
+                </div>
+                <div class="book-item">
+                    <div class="book-art" style="background: linear-gradient(135deg, #dcdde1, #fff); color: #000;">
+                        <h4>Choosing</h4>
+                    </div>
+                    <h3>Choosing</h3>
+                    <p class="book-desc">The final chapter of choosing us.</p>
+                    <a href="#" class="cta-button" style="opacity: 0.5; pointer-events: none;">COMING SOON</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social">📸 &nbsp; 𝕏</div>
+        <div class="newsletter">
+            <input type="email" placeholder="JOIN THE NEWSLETTER" class="newsletter-input">
+            <button class="submit-btn">JOIN</button>
+        </div>
+        <p class="copyright">© 2026 A.J. BECKETT. ALL RIGHTS RESERVED.</p>
+    </footer>
 
 </body>
 </html>
