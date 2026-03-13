@@ -228,12 +228,6 @@ color:#fff8f2;
 margin-bottom:.35rem;
 }
 
-.featured-meta p{
-margin:0;
-color:#f1e7df;
-font-size:.96rem;
-}
-
 section{
 padding:5.5rem 0;
 }
@@ -254,57 +248,11 @@ margin:0;
 color:var(--muted);
 }
 
-.intro-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:2rem;
-align-items:start;
-}
-
-.panel{
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:24px;
-padding:2rem;
-box-shadow:0 10px 30px rgba(0,0,0,.04);
-}
-
-.panel h3{
-font-size:1.7rem;
-margin-bottom:1rem;
-}
-
-.panel p{
-margin:.7rem 0 0;
-color:var(--muted);
-}
-
-.quote-panel{
-background:
-linear-gradient(180deg, rgba(122,74,74,.07), rgba(122,74,74,.03)),
-var(--surface);
-}
-
-.quote{
-font-family:'Playfair Display',serif;
-font-size:1.8rem;
-line-height:1.35;
-color:var(--text);
-margin:0 0 1rem;
-}
-
-.quote-note{
-text-transform:uppercase;
-letter-spacing:.16em;
-font-size:.72rem;
-color:var(--accent);
-font-weight:700;
-}
-
 .series-grid{
 display:grid;
-grid-template-columns:repeat(3, 1fr);
-gap:2rem;
+grid-template-columns:repeat(2, minmax(320px,420px));
+gap:3rem;
+justify-content:center;
 }
 
 .book-card{
@@ -318,43 +266,16 @@ flex-direction:column;
 }
 
 .book-image{
-aspect-ratio:2 / 3;
+aspect-ratio:2/3;
 background:var(--dark);
+max-width:420px;
+margin:auto;
 }
 
 .book-image img{
 width:100%;
 height:100%;
 object-fit:cover;
-}
-
-.placeholder-cover{
-width:100%;
-height:100%;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:2rem;
-color:#fff7f2;
-background:
-linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0)),
-linear-gradient(135deg, #2a2321, #6f4c4c);
-}
-
-.placeholder-cover strong{
-font-family:'Playfair Display',serif;
-font-size:2.2rem;
-font-weight:700;
-margin-bottom:.5rem;
-}
-
-.placeholder-cover span{
-text-transform:uppercase;
-letter-spacing:.18em;
-font-size:.74rem;
-opacity:.85;
 }
 
 .book-body{
@@ -392,17 +313,6 @@ margin:0 auto;
 text-align:center;
 }
 
-.newsletter-wrap h2{
-font-size:clamp(2rem, 4vw, 2.8rem);
-margin-bottom:.85rem;
-}
-
-.newsletter-wrap p{
-margin:0 auto 1.8rem;
-color:var(--muted);
-max-width:42rem;
-}
-
 .newsletter-form{
 display:flex;
 gap:.8rem;
@@ -411,8 +321,8 @@ flex-wrap:wrap;
 }
 
 .newsletter-form input{
-width:min(360px, 100%);
-padding:1rem 1rem;
+width:min(360px,100%);
+padding:1rem;
 border:1px solid #d7ccc4;
 border-radius:999px;
 font:inherit;
@@ -423,7 +333,6 @@ background:#fff;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:2rem;
-align-items:start;
 }
 
 .contact-card{
@@ -433,24 +342,10 @@ border-radius:24px;
 padding:2rem;
 }
 
-.contact-card h3{
-font-size:1.6rem;
-margin-bottom:.9rem;
-}
-
-.contact-card p{
-margin:0 0 1rem;
-color:var(--muted);
-}
-
 .email-link{
 color:var(--accent);
 text-decoration:none;
 font-weight:700;
-}
-
-.email-link:hover{
-text-decoration:underline;
 }
 
 footer{
@@ -461,47 +356,6 @@ padding:2.4rem 1rem;
 font-size:.82rem;
 }
 
-@media (max-width: 980px){
-
-.hero-inner,
-.intro-grid,
-.contact-grid{
-grid-template-columns:1fr;
-}
-
-.featured-book{
-justify-self:start;
-width:min(100%,420px);
-}
-
-.series-grid{
-grid-template-columns:1fr;
-}
-
-}
-
-@media (max-width:700px){
-
-.nav-inner{
-flex-direction:column;
-}
-
-.hero-inner{
-padding:3.2rem 0 5rem;
-gap:2rem;
-}
-
-section{
-padding:4.2rem 0;
-}
-
-.panel,
-.contact-card{
-padding:1.5rem;
-}
-
-}
-
 </style>
 </head>
 
@@ -509,11 +363,12 @@ padding:1.5rem;
 
 <nav>
 <div class="container nav-inner">
+
 <a class="brand" href="#">A.J. Beckett</a>
 
 <div class="nav-links">
 <a href="#about">About</a>
-<a href="#series">Series</a>
+<a href="#books">Books</a>
 <a href="#newsletter">Newsletter</a>
 <a href="#contact">Contact</a>
 </div>
@@ -540,7 +395,7 @@ no longer pretend they feel nothing.
 </p>
 
 <div class="hero-actions">
-<a href="#series" class="btn btn-primary">Explore the Series</a>
+<a href="#books" class="btn btn-primary">Explore the Books</a>
 <a href="#contact" class="btn btn-secondary">Get in Touch</a>
 </div>
 
@@ -548,15 +403,13 @@ no longer pretend they feel nothing.
 
 <div class="featured-book">
 
-<img src="becoming-cover.PNG" alt="Cover of Becoming by A.J. Beckett">
+<img src="becoming-cover.PNG" alt="Becoming book cover">
 
 <div class="featured-meta">
 
 <span class="featured-label">Featured Book</span>
-
 <h2>Becoming</h2>
-
-<p>Book One of the Tanner & Shelby Series.</p>
+<p>Book One of the Tanner & Shelby series</p>
 
 </div>
 
@@ -570,9 +423,7 @@ no longer pretend they feel nothing.
 
 <section id="about">
 
-<div class="container">
-
-<div class="section-heading">
+<div class="container section-heading">
 
 <h2>About the Author</h2>
 
@@ -581,20 +432,9 @@ Romance grounded in emotional friction, vulnerability, and the charged
 space between resistance and surrender.
 </p>
 
-</div>
-
-<div class="intro-grid">
-
-<div class="panel">
-
-<h3>A.J. Beckett</h3>
-
 <p>
 A.J. Beckett writes romance centered on the tension and intimacy that
 grow when two people are drawn together before they are ready to admit it.
-</p>
-
-<p>
 The work explores chemistry, restraint, emotional risk, and the kinds of
 connection that quietly reshape a life. A.J. Beckett lives and writes in
 Northern Alabama.
@@ -602,39 +442,46 @@ Northern Alabama.
 
 </div>
 
-<div class="panel quote-panel">
-
-<p class="quote">
-“These are stories about longing, vulnerability, and the choice to stay
-when walking away would be easier.”
-</p>
-
-<div class="quote-note">The heart of the work</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<section id="series">
+<section id="books">
 
 <div class="container">
 
 <div class="section-heading">
 
-<h2>The Tanner & Shelby Series</h2>
+<h2>Books by A.J. Beckett</h2>
 
 <p>
-A developing series about closeness, friction, and the kind of love that
-becomes impossible to ignore.
+Stories about connection, endurance, and the unexpected ways love
+reshapes a life.
 </p>
 
 </div>
 
 <div class="series-grid">
+
+<article class="book-card">
+
+<div class="book-image">
+<img src="run-naked-cover.PNG" alt="Run Naked book cover">
+</div>
+
+<div class="book-body">
+
+<h3>Run Naked</h3>
+
+<p>
+A romance about endurance, vulnerability, and the unexpected
+connection that forms when two runners discover that love,
+like distance, is built one mile at a time.
+</p>
+
+<a class="btn btn-primary">Coming Soon</a>
+
+</div>
+
+</article>
 
 <article class="book-card">
 
@@ -647,60 +494,11 @@ becomes impossible to ignore.
 <h3>Becoming</h3>
 
 <p>
-Book One of the Tanner & Shelby Series. One choice. Total proximity. The start of everything.
+Book One of the Tanner & Shelby series. One choice.
+Total proximity. The start of everything.
 </p>
 
-<a href="#" class="btn btn-primary">View on Amazon</a>
-
-</div>
-
-</article>
-
-<article class="book-card">
-
-<div class="book-image">
-
-<div class="placeholder-cover">
-<strong>Building</strong>
-<span>Coming Soon</span>
-</div>
-
-</div>
-
-<div class="book-body">
-
-<h3>Building</h3>
-
-<p>
-The second book in the Tanner & Shelby Series. More details will be added as the story develops.
-</p>
-
-<a class="btn btn-primary">Coming Soon</a>
-
-</div>
-
-</article>
-
-<article class="book-card">
-
-<div class="book-image">
-
-<div class="placeholder-cover">
-<strong>Choosing</strong>
-<span>Coming Soon</span>
-</div>
-
-</div>
-
-<div class="book-body">
-
-<h3>Choosing</h3>
-
-<p>
-The third book in the Tanner & Shelby Series. Cover reveal and release information will follow later.
-</p>
-
-<a class="btn btn-primary">Coming Soon</a>
+<a class="btn btn-primary">View on Amazon</a>
 
 </div>
 
@@ -714,25 +512,22 @@ The third book in the Tanner & Shelby Series. Cover reveal and release informati
 
 <section id="newsletter" class="newsletter">
 
-<div class="container">
-
-<div class="newsletter-wrap">
+<div class="container newsletter-wrap">
 
 <h2>Join the Inner Circle</h2>
 
 <p>
-Subscribe for release announcements, early previews, and exclusive Tanner & Shelby content.
+Subscribe for release announcements, early previews,
+and exclusive content.
 </p>
 
-<form class="newsletter-form" onsubmit="return false;">
+<form class="newsletter-form">
 
-<input type="email" placeholder="Email Address" aria-label="Email Address">
+<input type="email" placeholder="Email Address">
 
 <button class="btn btn-primary">Subscribe</button>
 
 </form>
-
-</div>
 
 </div>
 
@@ -746,7 +541,7 @@ Subscribe for release announcements, early previews, and exclusive Tanner & Shel
 
 <h2>Contact</h2>
 
-<p>Reader mail, business inquiries, and collaboration requests are welcome.</p>
+<p>Reader mail and business inquiries are welcome.</p>
 
 </div>
 
@@ -757,19 +552,10 @@ Subscribe for release announcements, early previews, and exclusive Tanner & Shel
 <h3>Email</h3>
 
 <p>
-Reach out directly at
-<a class="email-link" href="mailto:hello@ajbeckettwrites.com">hello@ajbeckettwrites.com</a>.
-</p>
-
-</div>
-
-<div class="contact-card">
-
-<h3>What’s Coming</h3>
-
-<p>
-This site will grow as the Tanner & Shelby Series develops, with live book links,
-updated cover art, and a working newsletter signup.
+Reach out at
+<a class="email-link" href="mailto:hello@ajbeckettwrites.com">
+hello@ajbeckettwrites.com
+</a>
 </p>
 
 </div>
