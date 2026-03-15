@@ -310,45 +310,6 @@ section{
   align-self:flex-start;
 }
 
-.newsletter{
-  background:var(--soft);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-}
-
-.newsletter-wrap{
-  max-width:760px;
-  margin:0 auto;
-  text-align:center;
-}
-
-.newsletter-wrap h2{
-  font-size:clamp(2rem, 4vw, 2.8rem);
-  margin-bottom:.85rem;
-}
-
-.newsletter-wrap p{
-  margin:0 auto 1.8rem;
-  color:var(--muted);
-  max-width:42rem;
-}
-
-.newsletter-form{
-  display:flex;
-  gap:.8rem;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.newsletter-form input{
-  width:min(360px,100%);
-  padding:1rem;
-  border:1px solid #d7ccc4;
-  border-radius:999px;
-  font:inherit;
-  background:#fff;
-}
-
 .contact-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -520,7 +481,6 @@ footer{
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#books">Books</a>
-      <a href="#newsletter">Newsletter</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -621,24 +581,6 @@ Book One of the Tanner &amp; Shelby Series.
         </article>
 
       </div>
-
-    </div>
-  </section>
-
-  <section id="newsletter" class="newsletter">
-    <div class="container newsletter-wrap">
-
-      <h2>Join the Inner Circle</h2>
-
-      <p>
-        Subscribe for release announcements, early previews,
-        and exclusive Tanner &amp; Shelby content.
-      </p>
-
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Email Address" aria-label="Email Address">
-        <button class="btn btn-primary" type="submit">Subscribe</button>
-      </form>
 
     </div>
   </section>
