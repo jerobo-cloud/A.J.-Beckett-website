@@ -364,8 +364,10 @@ section{
   margin-top:1.4rem;
 }
 
-.social-links a{
-  display:inline-block;
+.social-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
   padding:.85rem 1.1rem;
   border:1px solid var(--border);
   border-radius:999px;
@@ -374,11 +376,23 @@ section{
   font-weight:600;
   color:var(--text);
   background:#fff;
+  transition:.2s ease;
 }
 
-.social-links a:hover{
+.social-btn img{
+  width:16px;
+  height:16px;
+  display:block;
+  opacity:.85;
+}
+
+.social-btn:hover{
   border-color:#d3c3b9;
   color:var(--accent);
+}
+
+.social-btn:hover img{
+  opacity:1;
 }
 
 footer{
